@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package car;
+
+import "google/protobuf/empty.proto";
+
+service CarController {
+    rpc List(CarListRequest) returns (stream Car) {}
+    rpc Create(Car) returns (Car) {}
+    rpc Retrieve(CarRetrieveRequest) returns (Car) {}
+    rpc Update(Car) returns (Car) {}
+    rpc Destroy(Car) returns (google.protobuf.Empty) {}
+}
+
+message Car {
+    int32 id = 1;
+    string brand = 2;
+    string release_year = 3;
+    string color = 4;
+}
+
+message CarListRequest {
+}
+
+message CarRetrieveRequest {
+    int32 id = 1;
+}
