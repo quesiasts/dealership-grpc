@@ -13,9 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
+from dealership.handlers import grpc_handlers as car_grpc_handlers
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+
+urlpatterns = []
+
+def grpc_handlers(server):
+    car_grpc_handlers(server)
